@@ -20,7 +20,7 @@ body {
 }
 
 #titulo-principal {
-  background-color: #7FCB5B;
+  background-color: #182e0e;
   color: #FFD700;
   font-size: 48px;
   font-weight: bold;
@@ -37,7 +37,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   background-color: #A8E6A3;
-  color: #FFD700;
+  color: #282411;
   font-size: 20px;
   font-weight: bold;
   padding: 10px 20px;
