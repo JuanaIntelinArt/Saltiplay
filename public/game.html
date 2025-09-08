@@ -4,87 +4,25 @@
   <meta charset="UTF-8">
   <title>Saltiplay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #A0522D; /* fondo tipo madera */
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      color: #fff;
-      text-shadow: 1px 1px 3px #000;
-      margin-top: 20px;
-    }
-
-    #mesa {
-      position: relative;
-      width: 95%;
-      max-width: 700px;
-      aspect-ratio: 3 / 2;
-      background-color: #D2B48C;
-      border: 4px solid #5C4033;
-      border-radius: 12px;
-      margin: 20px 0;
-      overflow: hidden;
-    }
-
-    #masa {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .colocado {
-      position: absolute;
-      width: 30%;
-      max-width: 200px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
-    #zona-ingredientes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 10px;
-      max-width: 700px;
-    }
-
-    .ingrediente {
-      width: 100px;
-      height: auto;
-      cursor: grab;
-    }
-
-    @media (max-width: 600px) {
-      .ingrediente {
-        width: 80px;
-      }
-      .colocado {
-        width: 40%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Arma tu salteña</h1>
+  <div id="titulo-container">
+    <div id="subtitulo">Arma tu salteña</div>
+    <div id="titulo-principal">Saltiplay</div>
+  </div>
+
+  <div id="tiempo">TIEMPO: 0:00</div>
+
   <div id="mesa" ondragover="allowDrop(event)" ondrop="soltarIngrediente(event)">
     <img src="masa_abierta.png" id="masa">
   </div>
+
   <div id="zona-ingredientes"></div>
+
+  <button id="btn-horno">LISTO! AL HORNO</button>
+
+  <div id="quiz-container"></div>
 
   <script src="game.js"></script>
 </body>
