@@ -1,10 +1,17 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
+// Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static('public'));
 app.use(express.json());
 
+// Redirigir la raíz al juego
+app.get('/', (req, res) => {
+  res.redirect('/game.html');
+});
+
+// Generador de preguntas dinámicas
 function generateQuiz() {
   const subjects = ["She", "He", "They", "I", "We"];
   const verbs = [
@@ -90,6 +97,7 @@ function generateQuiz() {
   ];
 }
 
+// Validar armado de salteña
 app.post('/validar-armado', (req, res) => {
   const { pasos } = req.body;
   const correcto =
@@ -107,11 +115,13 @@ app.post('/validar-armado', (req, res) => {
   });
 });
 
+// Generar quiz dinámico
 app.get('/generate-quiz', (req, res) => {
   const quiz = generateQuiz();
   res.json({ questions: quiz });
 });
 
+// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
